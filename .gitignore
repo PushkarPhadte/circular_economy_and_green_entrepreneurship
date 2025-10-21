@@ -1,0 +1,4 @@
+# Used only to provide vscode with type-definitions for autocompletion,
+# not used in the actual code at all.
+*.d.ts
+*.cjs

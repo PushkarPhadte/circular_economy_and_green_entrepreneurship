@@ -1,0 +1,276 @@
+:root {
+  --primary-green: #388e3c;
+  --secondary-green: #81c784;
+  --accent: #d7a22a;
+  --highlight-bg: #eafbe7;
+  --radius-soft: 18px;
+  --text: #234022;
+  --white: #fff;
+}
+
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #eafbe7 0%, #a0cea9 100%);
+  font-family: 'Segoe UI', system-ui, Roboto, Helvetica Neue, Arial, sans-serif;
+  color: var(--text);
+}
+
+body {
+  background: linear-gradient(120deg, #eafbe7 10%, #a0cea9 80%) fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Content Container */
+.content-container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* School Info Section */
+.school-info-section {
+  margin-bottom: 60px;
+}
+
+.school-info-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 4px 20px rgba(56, 142, 60, 0.12);
+  max-width: 600px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(56, 142, 60, 0.2);
+}
+
+.school-card {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.card-icon {
+  font-size: 3.5rem;
+  flex-shrink: 0;
+}
+
+.card-details {
+  flex: 1;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  min-width: 80px;
+  font-size: 1.05rem;
+}
+
+.detail-value {
+  color: #3d5f39;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Developers Section */
+.developers-section {
+  margin-bottom: 60px;
+}
+
+.developers-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  margin-bottom: 40px;
+}
+
+.developers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.developer-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px 25px;
+  box-shadow: 0 4px 20px rgba(56, 142, 60, 0.12);
+  text-align: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.developer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(56, 142, 60, 0.2);
+}
+
+.developer-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(56, 142, 60, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.developer-card:hover .developer-avatar {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.avatar-icon {
+  font-size: 3.5rem;
+}
+
+.developer-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.developer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.detail-item:hover {
+  background: #e8f5e9;
+}
+
+.detail-icon {
+  font-size: 1.3rem;
+}
+
+.detail-text {
+  font-size: 0.95rem;
+  color: #3d5f39;
+  word-break: break-word;
+}
+
+/* Footer Quote */
+.footer-quote {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 40px 20px 30px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.footer-quote q {
+  quotes: "" " " "";
+  font-style: italic;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 26px 0;
+  background: var(--primary-green);
+  color: #f8fbe8;
+  font-weight: 600;
+  font-size: 1.12rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .school-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detail-label {
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+
+  .developers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.developer-role {
+    font-style: italic;
+    font-size: 1rem;
+    color: #5a7947;
+    margin: 6px 0 16px 0;
+}
+
+@media (max-width: 600px) {
+  .content-container {
+    padding: 0 15px;
+  }
+
+  .info-card {
+    padding: 30px 20px;
+  }
+
+  .developer-card {
+    padding: 30px 20px;
+  }
+
+  .school-info-section h2,
+  .developers-section h2 {
+    font-size: 1.6rem;
+  }
+}

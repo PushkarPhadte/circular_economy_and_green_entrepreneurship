@@ -178,7 +178,7 @@ project/
 
 ## 👥 Authors
 
-- **Pushkar Phadte** - *Lead Developer*
+- **Pushkar Phadte** - *Website Developer*
 - **Mayuresh Jalmi** - *Website Designer*
 
 ## 🙏 Acknowledgments

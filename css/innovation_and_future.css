@@ -365,19 +365,6 @@ body {
   }
 }
 
-footer {
-  text-align: center;
-  padding: 24px 0;
-  background: var(--primary-green);
-  color: #f8fbe8;
-  font-weight: 600;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  margin-top: 68px;
-  letter-spacing: 0.18px;
-  box-shadow: 0 -2px 20px 0 rgba(46, 80, 54, 0.09);
-}
-
 @media (max-width: 900px) {
   .innovation-highlights {
     max-width: 99vw;

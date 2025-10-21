@@ -215,17 +215,6 @@ main {
   font-style: italic;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 26px 0;
-  background: var(--primary-green);
-  color: #f8fbe8;
-  font-weight: 600;
-  font-size: 1.12rem;
-  flex-shrink: 0;
-}
-
 @media (max-width: 768px) {
   .school-card {
     flex-direction: column;

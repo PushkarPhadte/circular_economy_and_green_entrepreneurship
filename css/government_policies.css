@@ -419,14 +419,6 @@ body {
   }
 }
 
-footer {
-  text-align: center;
-  padding: 24px 0;
-  background: var(--primary-green);
-  color: #f8fbe8;
-  margin-top: 48px;
-}
-
 .in-view {
   opacity: 0;
   transform: translateY(30px);

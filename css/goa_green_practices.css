@@ -863,21 +863,6 @@ body {
   }
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 26px 0;
-  background: #388e3c;
-  color: #f8fbe8;
-  font-weight: 600;
-  font-size: 1.16rem;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  margin-top: 68px;
-  letter-spacing: 0.18px;
-  box-shadow: 0 -2px 20px 0 rgba(46, 80, 54, 0.09);
-}
-
 @media (max-width: 900px) {
   .solar-highlight {
     grid-template-columns: 1fr;

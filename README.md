@@ -38,6 +38,7 @@ project/
 │   ├── circular_economy.css            # Circular economy page styles
 │   ├── green_entrepreneurship.css      # Green entrepreneurship styles
 │   ├── contact_us.css                  # Contact page styles
+|   ├── navbar_footer.css               # Handles Navbar and footer for all pages
 │   └── [other page-specific styles]
 ├── js/
 │   ├── circular_economy.js             # Circular economy animations

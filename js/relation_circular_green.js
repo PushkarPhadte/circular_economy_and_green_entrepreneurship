@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const numberEl = card.querySelector('.stat-number');
             if (numberEl) {
               const text = numberEl.textContent.trim();
-              
+
               // Parse the target value and format
               let targetValue = 0;
               let prefix = '';
               let suffix = '';
-              
+
               if (text.includes('$') && text.includes('T')) {
                 // $2T
                 prefix = '$';
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               // Create counter object
               const counter = { value: 0 };
-              
+
               // Animate the counter
               animate(counter, {
                 value: targetValue,
@@ -148,6 +148,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0.15 });
     if (principleItems[0]) observer.observe(principleItems[0]);
+  }
+
+  // Related topics section animation
+  const relatedSection = document.querySelector('.related-topics-section');
+  if (relatedSection instanceof HTMLElement) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate section container
+          animate(relatedSection, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            easing: 'easeOutCubic',
+            duration: 700,
+          });
+
+          // Animate related cards with stagger
+          const relatedCards = document.querySelectorAll('.related-card');
+          if (relatedCards.length > 0) {
+            animate(relatedCards, {
+              opacity: [0, 1],
+              translateY: [20, 0],
+              easing: 'easeOutCubic',
+              duration: 600,
+              delay: stagger(120),
+            });
+          }
+
+          obs.unobserve(relatedSection);
+        }
+      });
+    }, { threshold: 0.15 });
+    observer.observe(relatedSection);
   }
 
   // Footer animation

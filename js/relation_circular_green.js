@@ -1,5 +1,5 @@
 // @ts-check
-import { animate, stagger, splitText } from '../animejs/dist/modules/index.js';
+import { animate, stagger, splitText, utils } from '../animejs/dist/modules/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Hero heading animation
@@ -40,12 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Stats cards stagger animation
+  // Stats cards with counter animation
   const statCards = document.querySelectorAll('.stat-card');
   if (statCards.length > 0) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          // First animate the cards appearing
           animate(statCards, {
             opacity: [0, 1],
             scale: [0.9, 1],
@@ -53,6 +54,55 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 600,
             delay: stagger(120),
           });
+
+          // Then animate the numbers counting up
+          statCards.forEach((card, index) => {
+            const numberEl = card.querySelector('.stat-number');
+            if (numberEl) {
+              const text = numberEl.textContent.trim();
+              
+              // Parse the target value and format
+              let targetValue = 0;
+              let prefix = '';
+              let suffix = '';
+              
+              if (text.includes('$') && text.includes('T')) {
+                // $2T
+                prefix = '$';
+                suffix = 'T';
+                targetValue = 2;
+              } else if (text.includes('M+')) {
+                // 10M+
+                suffix = 'M+';
+                targetValue = 10;
+              } else if (text.includes('%')) {
+                // 90%
+                suffix = '%';
+                targetValue = 90;
+              } else if (text.includes('$') && text.includes('B+')) {
+                // $100B+
+                prefix = '$';
+                suffix = 'B+';
+                targetValue = 100;
+              }
+
+              // Create counter object
+              const counter = { value: 0 };
+              
+              // Animate the counter
+              animate(counter, {
+                value: targetValue,
+                duration: 2000,
+                easing: 'easeOutExpo',
+                delay: index * 120 + 300, // Start after cards appear
+                onUpdate: () => {
+                  const currentValue = Math.floor(counter.value);
+                  numberEl.textContent = `${prefix}${currentValue}${suffix}`;
+                }
+              });
+            }
+          });
+
           obs.unobserve(entry.target);
         }
       });

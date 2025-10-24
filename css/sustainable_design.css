@@ -30,10 +30,11 @@ body {
 .intro-section {
   max-width: 1200px;
   margin: 50px auto;
-  padding: 48px 24px;
+  padding: 56px 40px;
   background: white;
   border-radius: 20px;
-  box-shadow: 0 6px 24px rgba(56, 142, 60, 0.1);
+  box-shadow: 0 8px 32px rgba(56, 142, 60, 0.12);
+  border-top: 5px solid var(--primary-green);
   opacity: 0;
   transform: translateY(30px);
 }
@@ -41,41 +42,113 @@ body {
 .intro-section h2 {
   text-align: center;
   color: var(--primary-green);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  margin-bottom: 36px;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .intro-content {
   display: grid;
   gap: 40px;
-  align-items: center;
+  align-items: start;
 }
 
 .intro-text p {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: var(--text-medium);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.intro-text p:first-of-type {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.intro-text > p:nth-of-type(2) {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--deep-green);
 }
 
 .intro-text ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin: 24px 0;
+  display: grid;
+  gap: 16px;
 }
 
 .intro-text ul li {
-  padding: 12px 0;
-  align-items: center;
+  padding: 16px 20px 16px 56px;
   position: relative;
-  color: var(--text-medium);
+  color: var(--text-dark);
+  background: var(--bg-light);
+  border-radius: 12px;
+  border-left: 4px solid var(--secondary-green);
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.intro-text ul li:hover {
+  background: linear-gradient(135deg, #f0fff4 0%, #e8f5e9 100%);
+  transform: translateX(8px);
+  border-left-color: var(--primary-green);
+  box-shadow: 0 4px 16px rgba(56, 142, 60, 0.08);
 }
 
 .intro-text ul li::before {
   content: '✓';
-  color: var(--primary-green);
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  background: var(--primary-green);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(56, 142, 60, 0.3);
+}
+
+.intro-text ul li strong {
+  color: var(--deep-green);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    padding: 40px 24px;
+    margin: 30px 16px;
+  }
+
+  .intro-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .intro-text p {
+    font-size: 1.05rem;
+  }
+
+  .intro-text ul li {
+    padding: 14px 18px 14px 50px;
+    font-size: 1rem;
+  }
+
+  .intro-text ul li::before {
+    width: 24px;
+    height: 24px;
+    left: 14px;
+    font-size: 1rem;
+  }
 }
 
 /* Crafting Process Section */

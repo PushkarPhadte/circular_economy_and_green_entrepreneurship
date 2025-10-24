@@ -32,6 +32,7 @@ project/
 │   ├── relation_circular_green.html    # Relationship between concepts
 │   ├── goa_green_practices.html        # Goa's green initiatives
 │   ├── goa_green_entrepreneurship.html # Goa's green entrepreneurs
+│   ├── sustainable_design_production.html  # Teaches about minimizing environmental impact
 │   └── contact_us.html                 # Contact information
 ├── css/
 │   ├── styles.css                      # Homepage styles

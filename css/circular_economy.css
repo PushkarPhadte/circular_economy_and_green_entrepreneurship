@@ -1215,8 +1215,26 @@ body {
   }
 }
 
+
 footer {
   max-width: 100vw;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow-x: visible;
+  position: relative;
+}
+
+.footer-decoration-left,
+.footer-decoration-right {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 180px;
+  max-width: 100vw;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+.footer-decoration-right {
+  right: 0;
+  left: auto;
+  transform: scaleX(-1);
 }

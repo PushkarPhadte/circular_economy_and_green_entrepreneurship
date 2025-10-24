@@ -63,4 +63,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     obs.observe(relatedSection);
   }
+
+  // Animate impact cards
+  const pieSection = document.querySelector('.policy-impact');
+  if (pieSection instanceof HTMLElement) {
+    const pieObs = new IntersectionObserver((entries, o) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pieChart = pieSection.querySelector('.impact-pie-chart');
+          if (pieChart) {
+            animate(pieChart, {
+              opacity: [0, 1],
+              translateY: [30, 0],
+              duration: 800,
+              easing: 'easeOutCubic',
+              delay: 200
+            });
+          }
+
+          // Animate cards
+          const impactCards = Array.from(pieSection.querySelectorAll('.impact-card'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(impactCards, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 700,
+            easing: 'easeOutCubic',
+            delay: stagger(100, { start: 400 })
+          });
+
+          // Animate future projection
+          const futureProjection = pieSection.querySelector('.future-projection');
+          if (futureProjection instanceof HTMLElement) {
+            animate(futureProjection, {
+              opacity: [0, 1],
+              translateY: [30, 0],
+              duration: 800,
+              easing: 'easeOutCubic',
+              delay: 1000
+            });
+          }
+
+          o.unobserve(pieSection);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    pieObs.observe(pieSection);
+  }
 });

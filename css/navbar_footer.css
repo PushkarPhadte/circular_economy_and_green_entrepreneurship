@@ -244,6 +244,7 @@ footer {
   filter: drop-shadow(2px 2px 8px rgba(56, 142, 60, 0.2));
 }
 
+/* Right Corner Bush */
 .footer-decoration-right {
   position: absolute;
   bottom: -10px;
@@ -263,6 +264,7 @@ footer {
   filter: drop-shadow(-2px 2px 8px rgba(56, 142, 60, 0.2));
 }
 
+/* Footer Content */
 .footer-content {
   position: relative;
   z-index: 2;

@@ -1130,17 +1130,6 @@ h2 {
   text-decoration: underline;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 24px 0;
-  background: #388e3c;
-  color: #f8fbe8;
-  font-weight: 600;
-  font-size: 1.12rem;
-  border-top: none;
-}
-
 @media(max-width: 768px) {
   .principle-cards {
     flex-direction: column;

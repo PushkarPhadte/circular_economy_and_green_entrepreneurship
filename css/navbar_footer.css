@@ -216,12 +216,116 @@ nav .logo img {
   }
 }
 
+/* footer */
 footer {
+  position: relative;
+  background: linear-gradient(180deg, rgba(129, 199, 132, 0.05) 0%, #eafbe7 100%);
+  padding: 60px 20px 40px;
+  margin-top: 80px;
+  overflow: visible;
+}
+
+/* Left Corner Bush */
+.footer-decoration-left {
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.footer-decoration-left img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(2px 2px 8px rgba(56, 142, 60, 0.2));
+}
+
+.footer-decoration-right {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.footer-decoration-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scaleX(-1);
+  filter: drop-shadow(-2px 2px 8px rgba(56, 142, 60, 0.2));
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  padding: 26px 0;
-  background: var(--primary-green);
-  color: #f8fbe8;
-  font-weight: 600;
-  font-size: 1.12rem;
-  flex-shrink: 0;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #3d5f39;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .footer-decoration-left,
+  .footer-decoration-right {
+    width: 140px;
+    bottom: -5px;
+  }
+
+  .footer-decoration-left {
+    left: -5px;
+  }
+
+  .footer-decoration-right {
+    right: -5px;
+  }
+
+  footer {
+    padding: 50px 20px 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-decoration-left,
+  .footer-decoration-right {
+    width: 100px;
+    opacity: 0.7;
+    bottom: 0;
+  }
+
+  .footer-decoration-left {
+    left: 0;
+  }
+
+  .footer-decoration-right {
+    right: 0;
+  }
+
+  footer {
+    padding: 40px 15px 30px;
+  }
+
+  .footer-content p {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
 }

@@ -1,81 +1,8 @@
 // @ts-check
-import { animate, stagger, createTimeline, splitText, utils } from '../animejs/dist/modules/index.js';
+import { animate, stagger, splitText } from '../animejs/dist/modules/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const infoSections = document.querySelectorAll('.circular-info');
-  infoSections.forEach(info => {
-    if (info instanceof HTMLElement) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animate(info, {
-              opacity: [0, 1],
-              translateY: [36, 0],
-              easing: 'easeOutCubic',
-              duration: 800,
-            });
-
-            // Dust effect
-            const p = info.querySelector('p');
-            if (p instanceof HTMLElement) {
-              const original = p.textContent.trim();
-              p.innerHTML = original
-                .split(' ')
-                .map(w => `<span class="dust">${w}</span>`)
-                .join(' ');
-
-              /** @type {HTMLElement[]} */
-              const spans = Array.from(p.querySelectorAll('.dust')).filter(el => el instanceof HTMLElement);
-
-              spans.forEach(span => {
-                const angle = Math.random() * Math.PI * 2;
-                const r = 100 + Math.random() * 50;
-                span.style.opacity = '0';
-                span.style.transform = `
-                  translate(${Math.cos(angle) * r}px, ${Math.sin(angle) * r}px)
-                  rotate(${(Math.random() - 0.5) * 60}deg)
-                  scale(${0.6 + Math.random() * 0.6})
-                `;
-              });
-
-              animate(spans, {
-                translateX: 0,
-                translateY: 0,
-                rotate: 0,
-                scale: 1,
-                opacity: 1,
-                easing: 'easeOutQuart',
-                duration: 1000,
-                delay: stagger(25),
-                complete: () => {
-                  spans.forEach(span => {
-                    span.style.opacity = '';
-                    span.style.transform = '';
-                  });
-                }
-              });
-            }
-
-            const items = info.querySelectorAll('ul li');
-            animate(items, {
-              translateX: [-20, 0],
-              opacity: [0, 1],
-              easing: 'easeOutCubic',
-              duration: 500,
-              delay: stagger(80, { start: 200 }),
-            });
-
-            obs.unobserve(info);
-          }
-        });
-      }, { threshold: 0.3 });
-
-      observer.observe(info);
-    }
-  });
-
   const $heading = document.querySelector('.fall-heading');
-
   if ($heading instanceof HTMLElement) {
     const split = splitText($heading, { chars: true });
 
@@ -90,65 +17,136 @@ document.addEventListener('DOMContentLoaded', () => {
       easing: 'easeOutBack',
       duration: 800,
       delay: stagger(30),
-      complete: () => {
-        split.chars.forEach(char => {
-          char.style.opacity = '';
-          char.style.transform = '';
-        });
-      }
     });
   }
 
-  // Benefits section
-  const benefitsSection = document.querySelector('.benefits-section');
-  if (benefitsSection instanceof HTMLElement) {
+  const overviewSection = document.querySelector('.circular-economy-overview');
+  if (overviewSection instanceof HTMLElement) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          animate(benefitsSection, {
+          // Animate main content (left column)
+          animate('.overview-main', {
             opacity: [0, 1],
-            translateY: [30, 0],
-            easing: 'easeOutQuad',
-            duration: 700,
+            translateX: [-50, 0],
+            easing: 'easeOutCubic',
+            duration: 800,
           });
-          /** @type {HTMLElement[]} */
-          const cards = Array.from(benefitsSection.querySelectorAll('.card')).filter(el => el instanceof HTMLElement);
-          animate(cards, {
+
+          // Animate benefits column (right)
+          animate('.overview-benefits', {
+            opacity: [0, 1],
+            translateX: [50, 0],
+            easing: 'easeOutCubic',
+            duration: 800,
+            delay: 200,
+          });
+
+          // Animate circular diagram
+          animate('.circular-diagram', {
+            opacity: [0, 1],
+            scale: [0.8, 1],
+            easing: 'spring(1, 80, 10, 0)',
+            duration: 1200,
+            delay: 400,
+          });
+
+          // Animate ring segments with stagger
+          const ringSegments = Array.from(document.querySelectorAll('.ring-segment'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(ringSegments, {
+            opacity: [0, 1],
+            scale: [0, 1],
+            easing: 'easeOutElastic(1, .6)',
+            duration: 1000,
+            delay: stagger(150, { start: 600 }),
+          });
+
+          // Animate benefit items
+          const benefitItems = Array.from(document.querySelectorAll('.benefit-item'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(benefitItems, {
             opacity: [0, 1],
             translateY: [20, 0],
             easing: 'easeOutCubic',
-            duration: 500,
-            delay: stagger(120),
+            duration: 600,
+            delay: stagger(120, { start: 800 }),
           });
-          obs.unobserve(benefitsSection);
+
+          obs.unobserve(overviewSection);
         }
       });
-    }, { threshold: 0.3 });
-    observer.observe(benefitsSection);
+    }, { threshold: 0.2 });
+
+    observer.observe(overviewSection);
   }
 
-  // Footer
-  animate('footer p', {
-    translateY: [20, 0],
-    opacity: [0, 1],
-    easing: 'easeOutSine',
-    duration: 600,
-    delay: 400,
-  });
+  const problemSection = document.querySelector('.consumption-problem-section');
+  if (problemSection instanceof HTMLElement) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate warning badge
+          animate('.warning-badge', {
+            opacity: [0, 1],
+            translateY: [-20, 0],
+            scale: [0.8, 1],
+            easing: 'spring(1, 80, 10, 0)',
+            duration: 800,
+          });
 
-  // Header animation
-  const header = document.querySelector('header');
-  if (header instanceof HTMLElement) {
-    animate(header, {
-      backgroundColor: ['rgba(38, 89, 75, 0.85)', 'rgba(38, 89, 75, 1)'],
-      easing: 'easeInOutSine',
-      duration: 3000,
-      direction: 'alternate',
-      loop: true,
-    });
+          // Animate heading
+          animate('.problem-header h2', {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutCubic',
+            duration: 700,
+            delay: 200,
+          });
+
+          // Animate main text
+          animate('.problem-main-text', {
+            opacity: [0, 1],
+            translateX: [-30, 0],
+            easing: 'easeOutCubic',
+            duration: 800,
+            delay: 400,
+          });
+
+          // Animate stat cards
+          const statCards = Array.from(document.querySelectorAll('.problem-stat-card'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(statCards, {
+            opacity: [0, 1],
+            translateX: [30, 0],
+            easing: 'easeOutCubic',
+            duration: 700,
+            delay: stagger(150, { start: 600 }),
+          });
+
+          // Animate impact boxes
+          const impactBoxes = Array.from(document.querySelectorAll('.impact-box'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(impactBoxes, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            easing: 'easeOutCubic',
+            duration: 600,
+            delay: stagger(100, { start: 800 }),
+          });
+
+          obs.unobserve(problemSection);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(problemSection);
   }
 
-  // Timeline animation
   const timelineSection = document.querySelector('.timeline-section');
   if (timelineSection instanceof HTMLElement) {
     const timelineItems = Array.from(document.querySelectorAll('.timeline-item'))
@@ -172,7 +170,93 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(timelineSection);
   }
 
-  // Animation for statistics
+  const storiesSection = document.querySelector('.success-stories-section');
+  if (storiesSection instanceof HTMLElement) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate heading
+          animate('.success-stories-section h2', {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            easing: 'easeOutCubic',
+            duration: 700,
+          });
+
+          // Animate subtitle
+          animate('.section-subtitle', {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutCubic',
+            duration: 600,
+            delay: 200,
+          });
+
+          // Animate story cards with stagger
+          const storyCards = Array.from(document.querySelectorAll('.story-card'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(storyCards, {
+            opacity: [0, 1],
+            translateY: [40, 0],
+            easing: 'easeOutCubic',
+            duration: 700,
+            delay: stagger(120, { start: 400 }),
+          });
+
+          obs.unobserve(storiesSection);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(storiesSection);
+  }
+
+  document.querySelectorAll('.story-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const icon = card.querySelector('.story-icon');
+      if (icon instanceof HTMLElement) {
+        animate(icon, {
+          scale: [1, 1.15, 1],
+          rotate: [0, 10, 0],
+          duration: 500,
+          easing: 'easeOutElastic(1, .6)',
+        });
+      }
+    });
+  });
+
+  const benefitsSection = document.querySelector('.benefits-section');
+  if (benefitsSection instanceof HTMLElement) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(benefitsSection, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            easing: 'easeOutQuad',
+            duration: 700,
+          });
+
+          const cards = Array.from(benefitsSection.querySelectorAll('.card'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(cards, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutCubic',
+            duration: 500,
+            delay: stagger(120),
+          });
+
+          obs.unobserve(benefitsSection);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(benefitsSection);
+  }
+
   const statsSection = document.querySelector('.stats-dashboard');
   if (statsSection instanceof HTMLElement) {
     const observer = new IntersectionObserver((entries, obs) => {
@@ -189,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: stagger(100, { start: 300 }),
           });
 
+          // Animated number counting
           document.querySelectorAll('.stat-value').forEach((statValue, index) => {
             if (statValue instanceof HTMLElement) {
               const target = parseFloat(statValue.getAttribute('data-target') || '0');
@@ -244,7 +329,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(statsSection);
   }
 
-  // Related topics animation
   const relatedSection = document.querySelector('.related-topics-section');
   if (relatedSection instanceof HTMLElement) {
     const observer = new IntersectionObserver((entries, obs) => {
@@ -275,4 +359,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.observe(relatedSection);
   }
+
+  document.querySelectorAll('.segment-content').forEach(segment => {
+    segment.addEventListener('mouseenter', () => {
+      if (segment instanceof HTMLElement) {
+        animate(segment, {
+          scale: [1, 1.15, 1],
+          easing: 'easeOutElastic(1, .6)',
+          duration: 600,
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll('.achievement-tag, .achievement-badge').forEach(tag => {
+    tag.addEventListener('mouseenter', () => {
+      if (tag instanceof HTMLElement) {
+        animate(tag, {
+          scale: [1, 1.08, 1],
+          duration: 400,
+          easing: 'easeOutCubic',
+        });
+      }
+    });
+  });
+
+  animate('footer p', {
+    translateY: [20, 0],
+    opacity: [0, 1],
+    easing: 'easeOutSine',
+    duration: 600,
+    delay: 400,
+  });
 });

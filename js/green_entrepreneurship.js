@@ -19,6 +19,99 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const overviewSection = document.querySelector('.green-entrepreneurship-overview');
+  if (overviewSection instanceof HTMLElement) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate main content
+          animate('.overview-main', {
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            easing: 'easeOutCubic',
+            duration: 800,
+          });
+
+          // Animate benefits column
+          animate('.overview-benefits', {
+            opacity: [0, 1],
+            translateX: [50, 0],
+            easing: 'easeOutCubic',
+            duration: 800,
+            delay: 200,
+          });
+
+          // Animate highlight boxes
+          const highlightBoxes = Array.from(document.querySelectorAll('.highlight-box'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(highlightBoxes, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutCubic',
+            duration: 600,
+            delay: stagger(100, { start: 400 }),
+          });
+
+          // Animate benefit items
+          const benefitItems = Array.from(document.querySelectorAll('.benefit-item'))
+            .filter(el => el instanceof HTMLElement);
+
+          animate(benefitItems, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutCubic',
+            duration: 600,
+            delay: stagger(120, { start: 600 }),
+          });
+
+          // Animate stats bar
+          animate('.overview-stats-bar', {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            easing: 'spring(1, 80, 10, 0)',
+            duration: 1000,
+            delay: 1000,
+          });
+
+          obs.unobserve(overviewSection);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(overviewSection);
+  }
+
+  // Key Insights Animation
+  const insightsSection = document.querySelector('.key-insights-section');
+  if (insightsSection instanceof HTMLElement) {
+    const insightCards = Array.from(document.querySelectorAll('.insight-card'))
+      .filter(el => el instanceof HTMLElement);
+
+    animate(insightCards, {
+      opacity: [0, 1],
+      translateY: [30, 0],
+      easing: 'spring(1, 80, 10, 0)',
+      duration: 1000,
+      delay: stagger(150, { start: 600 }),
+    });
+
+    // Add pulse animation on hover
+    insightCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const icon = card.querySelector('.insight-icon');
+        if (icon instanceof HTMLElement) {
+          animate(icon, {
+            scale: [1, 1.2, 1],
+            rotate: [0, 10, -10, 0],
+            duration: 500,
+            easing: 'easeOutElastic(1, .6)',
+          });
+        }
+      });
+    });
+  }
+
   // Info sections animation
   const infoSections = document.querySelectorAll('.entrepreneur-info, .entrepreneur-history, .entrepreneur-examples');
   infoSections.forEach(section => {

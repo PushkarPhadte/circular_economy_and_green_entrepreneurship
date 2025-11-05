@@ -1,0 +1,677 @@
+:root {
+  --primary-green: #388e3c;
+  --accent: #d7a22a;
+  --highlight-bg: #eafbe7;
+  --radius-soft: 18px;
+  --light-green: #81c784;
+  --dark-green: #26594b;
+}
+
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, Roboto, Helvetica Neue, Arial, sans-serif;
+  color: #234022;
+}
+
+body {
+  background: linear-gradient(120deg, #eafbe7 10%, #a0cea9 80%) fixed;
+}
+
+.circular-info p .dust {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2vw 40px 2vw;
+}
+
+.highlight-bg {
+  background: var(--highlight-bg);
+  border-radius: var(--radius-soft);
+  box-shadow: 0 2px 16px rgba(92, 182, 82, 0.12);
+  margin: 44px auto 32px auto;
+  padding: 32px 28px;
+}
+
+/* Introduction Section */
+.intro-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #26733d;
+}
+
+/* Strategy Section */
+.goa-strategy {
+  margin: 50px auto;
+}
+
+.goa-strategy h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.goa-strategy ul {
+  list-style: disc inside;
+  font-size: 1.09rem;
+  color: #26733d;
+  margin-left: 8px;
+}
+
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.strategy-card {
+  background: white;
+  border-radius: 14px;
+  padding: 28px 22px;
+  box-shadow: 0 3px 12px rgba(86, 134, 100, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.strategy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(86, 134, 100, 0.18);
+}
+
+.strategy-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.strategy-card h3 {
+  color: var(--primary-green);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.strategy-card p {
+  font-size: 1rem;
+  color: #34442d;
+  line-height: 1.6;
+}
+
+/* Waste Management Section */
+.waste-management-section {
+  margin: 50px auto;
+}
+
+.waste-management-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.stats-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  background: linear-gradient(135deg, #388e3c 0%, #81c784 100%);
+  border-radius: 14px;
+  padding: 30px 20px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.stat-item {
+  color: white;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.waste-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.waste-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 9px rgba(86, 134, 100, 0.09);
+  padding: 25px 20px;
+  border-left: 6px solid var(--accent);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.waste-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(86, 134, 100, 0.15);
+}
+
+.waste-card.featured {
+  border-left: 6px solid var(--primary-green);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+}
+
+.waste-card h3 {
+  font-size: 1.15rem;
+  color: #388e3c;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.waste-card p {
+  font-size: 1rem;
+  color: #34442d;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+
+.feature-list li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  font-size: 0.95rem;
+  color: #26733d;
+}
+
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-green);
+  font-weight: bold;
+}
+
+.waste-challenge-box {
+  background: #fff9e6;
+  border-left: 6px solid #ff9800;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 30px;
+}
+
+.waste-challenge-box h3 {
+  color: #e65100;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.waste-challenge-box p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5d4037;
+}
+
+/* Solar Energy Section */
+.solar-energy-section {
+  margin: 50px auto;
+}
+
+.solar-energy-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.solar-highlight {
+  background: linear-gradient(135deg, #ffd54f 0%, #ffb300 100%);
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.solar-content h3 {
+  color: #e65100;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.solar-content p {
+  color: #5d4037;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.solar-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.solar-stat {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.solar-stat strong {
+  display: block;
+  font-size: 1.8rem;
+  color: #e65100;
+  margin-bottom: 4px;
+}
+
+.solar-stat span {
+  font-size: 0.9rem;
+  color: #5d4037;
+}
+
+.solar-initiatives {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.solar-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #ffa726;
+}
+
+.solar-card h3 {
+  color: #e65100;
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.solar-card p {
+  color: #34442d;
+  line-height: 1.6;
+}
+
+/* Eco Tourism Section */
+.eco-tourism {
+  margin: 50px auto;
+}
+
+.eco-tourism h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.eco-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+}
+
+.eco-intro p {
+  font-size: 1.1rem;
+  color: #26733d;
+  line-height: 1.7;
+}
+
+.eco-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.eco-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 9px rgba(86, 134, 100, 0.09);
+  padding: 25px 20px;
+  border-left: 6px solid var(--accent);
+  transition: transform 0.3s;
+}
+
+.eco-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(86, 134, 100, 0.15);
+}
+
+.eco-card h3 {
+  font-size: 1.15rem;
+  color: #388e3c;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.eco-card p {
+  font-size: 1rem;
+  color: #34442d;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.eco-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.eco-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Construction Section */
+.construction-section {
+  margin: 50px auto;
+}
+
+.construction-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.construction-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.construction-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.construction-text ul li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  font-size: 1rem;
+  color: #26733d;
+}
+
+.construction-text ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 8px;
+  color: var(--primary-green);
+  font-weight: bold;
+}
+
+.construction-impact {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.construction-impact h4 {
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Community Section */
+.community-section {
+  margin: 50px auto;
+}
+
+.community-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.community-card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 3px 12px rgba(86, 134, 100, 0.1);
+  transition: transform 0.3s;
+}
+
+.community-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 18px rgba(86, 134, 100, 0.16);
+}
+
+.community-card h3 {
+  color: var(--primary-green);
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.community-card p {
+  color: #34442d;
+  line-height: 1.6;
+}
+
+/* Map Section */
+.map-section {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.map-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+#goa-map {
+  width: 100%;
+  height: 450px;
+  border-radius: 14px;
+  box-shadow: 0 2px 18px rgba(82, 132, 122, 0.1);
+  margin-bottom: 12px;
+}
+
+.map-legend {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #317a45;
+}
+
+.legend-marker {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  margin: 0 6px 0 12px;
+  background: #81c784;
+  vertical-align: middle;
+}
+
+.legend-marker.museum {
+  background: #ffd24c;
+}
+
+.legend-marker.hotel {
+  background: #388e3c;
+}
+
+/* Impact Section */
+.impact-section {
+  margin: 50px auto;
+}
+
+.impact-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.impact-card {
+  background: white;
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: 0 3px 12px rgba(86, 134, 100, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 18px rgba(86, 134, 100, 0.16);
+}
+
+.impact-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.impact-card h3 {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.impact-card p {
+  color: #34442d;
+  line-height: 1.6;
+}
+
+/* Roadmap Section */
+.roadmap-section {
+  margin: 50px auto 40px auto;
+}
+
+.roadmap-section h2 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.roadmap-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.roadmap-item {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.roadmap-item h3 {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.roadmap-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.roadmap-item ul li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  font-size: 0.98rem;
+  color: #34442d;
+}
+
+.roadmap-item ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .solar-highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .construction-content {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-grid,
+  .waste-row,
+  .solar-initiatives,
+  .eco-cards-row,
+  .community-grid,
+  .impact-grid,
+  .roadmap-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .stats-banner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #goa-map {
+    height: 350px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+}

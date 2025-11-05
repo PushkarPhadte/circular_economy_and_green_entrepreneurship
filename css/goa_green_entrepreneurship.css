@@ -1,0 +1,576 @@
+:root {
+  --primary-green: #388e3c;
+  --secondary-green: #81c784;
+  --background: #eafbe7;
+  --accent: #d7a22a;
+  --radius-soft: 18px;
+}
+
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, Roboto, Arial, sans-serif;
+  background: linear-gradient(120deg, #eafbe7 10%, #a0cea9 80%);
+  color: #234022;
+}
+
+body {
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+main>section {
+  margin-bottom: 4.5rem;
+  padding: 0 1rem;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Background Highlight */
+.bg-highlight {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+  border-radius: 20px;
+  padding: 40px 32px;
+  margin: 44px auto;
+  box-shadow: 0 4px 20px rgba(56, 142, 60, 0.12);
+}
+
+.bg-highlight h2 {
+  color: var(--primary-green);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #3d5f39;
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #3d5f39;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+/* Motivation Cards */
+.motivation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.motivation-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  transition: all 0.3s ease;
+}
+
+.motivation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(56, 142, 60, 0.18);
+}
+
+.motivation-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.motivation-card h3 {
+  font-size: 1.15rem;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.motivation-card p {
+  font-size: 0.95rem;
+  color: #3d5f39;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Statistics Section */
+.stats-section {
+  margin: 60px auto;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #f0fff4 0%, #e0f2e9 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(56, 142, 60, 0.12);
+}
+
+.stats-section h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(56, 142, 60, 0.25);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.stat-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  line-height: 1;
+  display: inline-block;
+}
+
+.stat-unit {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--secondary-green);
+  margin-left: 4px;
+  display: block;
+  margin-top: 8px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #3d5f39;
+  margin-top: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Spotlight Section */
+.goa-spotlight {
+  margin: 60px auto;
+}
+
+.goa-spotlight h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.category-title {
+  color: var(--secondary-green);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 40px 0 25px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--secondary-green);
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.spotlight-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(56, 142, 60, 0.2);
+}
+
+.spotlight-icon {
+  font-size: 3rem;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.spotlight-card h4 {
+  font-size: 1.3rem;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.company-tagline {
+  font-size: 0.9rem;
+  color: var(--secondary-green);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.spotlight-card p {
+  font-size: 1rem;
+  color: #34442d;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.impact-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.tag {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  color: var(--primary-green);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Success Stories */
+.success-stories {
+  margin: 60px auto;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.story-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  border-left: 4px solid var(--secondary-green);
+  transition: all 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(56, 142, 60, 0.18);
+}
+
+.story-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.story-header h4 {
+  color: var(--primary-green);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+
+.story-year {
+  background: var(--accent);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.story-card p {
+  color: #3d5f39;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Initiatives Section */
+.goa-initiatives {
+  margin: 60px auto;
+}
+
+.goa-initiatives h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.initiative-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  transition: all 0.3s ease;
+}
+
+.initiative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(56, 142, 60, 0.2);
+}
+
+.initiative-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.initiative-card h3 {
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.initiative-card p {
+  font-size: 0.98rem;
+  color: #3d5f39;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.initiative-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.initiative-card li {
+  color: #34442d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* Resources Section */
+.resources-section {
+  margin: 60px auto;
+}
+
+.resources-section h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.resource-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(56, 142, 60, 0.18);
+}
+
+.resource-card h4 {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.resource-card p {
+  font-size: 0.95rem;
+  color: #3d5f39;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.cta-section>p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.cta-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.cta-step {
+  background: white;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 3px 12px rgba(56, 142, 60, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cta-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(56, 142, 60, 0.2);
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 auto 20px;
+}
+
+.cta-step h4 {
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.cta-step p {
+  font-size: 0.98rem;
+  color: #3d5f39;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+
+  .spotlight-grid,
+  .initiatives-grid,
+  .resources-grid,
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .motivation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .bg-highlight h2,
+  .goa-spotlight h2,
+  .stats-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .category-title {
+    font-size: 1.3rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+  }
+
+  .cta-steps {
+    grid-template-columns: 1fr;
+  }
+}

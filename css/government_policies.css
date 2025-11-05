@@ -1,0 +1,526 @@
+:root {
+  --primary-green: #388e3c;
+  --accent: #d7a22a;
+  --highlight-bg: #eafbe7;
+  --radius-soft: 18px;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, Roboto, sans-serif;
+  color: #234022;
+  background: linear-gradient(120deg, #eafbe7 10%, #a0cea9 80%) fixed;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2vw;
+}
+
+.content-container h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 32px 0 16px;
+}
+
+.highlight-bg {
+  background: var(--highlight-bg);
+  border-radius: var(--radius-soft);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  padding: 32px 24px;
+}
+
+.policy-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #26733d;
+}
+
+.goa-policies,
+.india-policies {
+  margin-top: 48px;
+  margin-bottom: 40px;
+}
+
+.india-policies .policy-cards-row,
+.goa-policies .policy-cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  justify-items: center;
+}
+
+.goa-policies .policy-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  justify-items: center;
+}
+
+.policy-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+.policy-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  flex: 1 1 260px;
+  border-left: 6px solid var(--accent);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.policy-card h3 {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.policy-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #34442d;
+}
+
+.policy-card:hover {
+  transform: translateY(-8px);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid #b3d9b1;
+  padding: 12px;
+  text-align: left;
+}
+
+.comparison-table th {
+  background: var(--accent);
+  color: #fff;
+}
+
+.comparison-table td {
+  background: #fff;
+  color: #34442d;
+}
+
+/* Policy Impact Section */
+.policy-impact {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 32px 24px;
+  background: var(--highlight-bg);
+  border-radius: var(--radius-soft);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+}
+
+.policy-impact h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.impact-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #26733d;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.impact-container {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .impact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pie-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pie-chart-container h3 {
+  font-size: 1.15rem;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.impact-pie-chart {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.impact-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.impact-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 18px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 3px solid var(--accent);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, #f4c542 100%);
+}
+
+.impact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 24px rgba(215, 162, 42, 0.25);
+  border-color: #f4c542;
+}
+
+.impact-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.impact-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #254c24;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.impact-desc {
+  font-size: 0.85rem;
+  color: #3a4632;
+  line-height: 1.4;
+}
+
+/* Future Projection Section */
+.future-projection {
+  background: linear-gradient(135deg, #4a9152 0%, #388e3c 100%);
+  border-radius: 20px;
+  padding: 36px 32px 40px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  box-shadow: 0 6px 24px rgba(56, 142, 60, 0.3);
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.future-projection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.future-projection::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Top decoration icons */
+.projection-decoration {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.decoration-icon {
+  font-size: 2rem;
+  opacity: 0.7;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+.decoration-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.decoration-icon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.decoration-icon:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.future-projection h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  margin-top: 0;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.projection-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.projection-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.projection-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.projection-icon {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.projection-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.projection-text {
+  font-size: 1.05rem;
+  color: #ffffff;
+  line-height: 1.4;
+  font-weight: 400;
+  max-width: 180px;
+}
+
+.projection-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.projection-footnote {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Upcoming Policies Section */
+.upcoming-policies {
+  max-width: 1100px;
+  margin: 48px auto 36px;
+  padding: 0 2vw;
+}
+
+.upcoming-policies h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+}
+
+.upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.upcoming-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.upcoming-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.upcoming-card h3 {
+  font-size: 1.1rem;
+  color: #254c24;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.upcoming-card p {
+  font-size: 0.95rem;
+  color: #3a4632;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+
+  .india-policies .policy-cards-row,
+  .goa-policies .policy-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .goa-policies .policy-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-pie-chart {
+    min-width: 100%;
+  }
+
+  .impact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projection-stats {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .projection-decoration {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .decoration-icon {
+    font-size: 1.5rem;
+  }
+
+  .projection-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+
+}
+
+.in-view {
+  opacity: 0;
+  transform: translateY(30px);
+}

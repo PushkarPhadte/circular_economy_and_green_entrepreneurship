@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goa's Green Practices</title>
+    <link rel="stylesheet" href="../css/navbar_footer.css" />
+    <link rel="stylesheet" href="../css/goa_green_practices.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/related_topics.css" />
+    <script type="module" src="../js/navbar.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html" class="home-logo-link">
+                    <img src="../assets/images/circular_eco_green_entre.avif" alt="Logo" class="navbar-logo" />
+                    <span class="home-text">GoaGreen</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <ul class="nav-menu">
+                <!-- Core Concepts Dropdown -->
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">
+                        Core Concepts
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="circular_economy.html">
+                                <span class="dropdown-icon">🔄</span>
+                                <div>
+                                    <strong>Circular Economy</strong>
+                                    <small>Design out waste & regenerate systems</small>
+                                </div>
+                            </a></li>
+                        <li><a href="green_entrepreneurship.html">
+                                <span class="dropdown-icon">💚</span>
+                                <div>
+                                    <strong>Green Entrepreneurship</strong>
+                                    <small>Build sustainable businesses</small>
+                                </div>
+                            </a></li>
+                        <li><a href="relation_circular_green.html">
+                                <span class="dropdown-icon">🔗</span>
+                                <div>
+                                    <strong>Their Connection</strong>
+                                    <small>How they empower each other</small>
+                                </div>
+                            </a></li>
+                        <li><a href="sustainable_design_production.html">
+                                <span class="dropdown-icon">🎨</span>
+                                <div>
+                                    <strong>Sustainable Design</strong>
+                                    <small>Eco-friendly production methods</small>
+                                </div>
+                            </a></li>
+                    </ul>
+                </li>
+
+                <!-- Goa's Green Journey Dropdown -->
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">
+                        Goa's Green Journey
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="goa_green_practices.html">
+                                <span class="dropdown-icon">🌿</span>
+                                <div>
+                                    <strong>Green Practices</strong>
+                                    <small>Sustainability in action</small>
+                                </div>
+                            </a></li>
+                        <li><a href="goa_green_entrepreneurship.html">
+                                <span class="dropdown-icon">💼</span>
+                                <div>
+                                    <strong>Local Entrepreneurs</strong>
+                                    <small>Meet Goa's green innovators</small>
+                                </div>
+                            </a></li>
+                    </ul>
+                </li>
+
+                <!-- Single Links -->
+                <li class="nav-item">
+                    <a href="government_policies.html" class="nav-link">Government Policies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact_us.html" class="nav-link cta-button">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <h1>Goa's Green Practices & Success Stories</h1>
+            <p>India's first state with a comprehensive Resource Efficiency & Circular Economy Strategy</p>
+        </section>
+    </header>
+
+    <main>
+        <div class="content-container">
+
+            <!-- Introduction Section -->
+            <section class="intro-section highlight-bg">
+                <h2>Leading India's Green Revolution</h2>
+                <p>In February 2020, Goa became the first state in India to launch a comprehensive Resource Efficiency
+                    and Circular Economy Strategy, developed in collaboration with the European Union and The Energy
+                    and Resources Institute (TERI). This pioneering initiative addresses critical environmental
+                    challenges in tourism, construction, and marine conservation while fostering sustainable
+                    development across the state.</p>
+            </section>
+
+            <!-- Strategy Overview -->
+            <section class="goa-strategy">
+                <h2>Goa's Resource Efficiency Strategy</h2>
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <div class="strategy-icon">🎯</div>
+                        <h3>Vision</h3>
+                        <p>Mainstream resource efficiency and circular economy principles across all sectors to ensure
+                            sustainable development and meet UN SDG targets.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">🔄</div>
+                        <h3>Approach</h3>
+                        <p>Focus on lifecycle resource management, promoting secondary raw materials, and reducing
+                            dependence on virgin resources through systematic planning.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">🌊</div>
+                        <h3>Priority Sectors</h3>
+                        <p>Tourism, construction, marine litter management, and renewable energy development with
+                            sector-specific action plans.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Waste Management Section -->
+            <section class="waste-management-section">
+                <h2>Revolutionary Waste Management Initiatives</h2>
+
+                <div class="stats-banner">
+                    <div class="stat-item">
+                        <div class="stat-number">7.5</div>
+                        <div class="stat-label">Tonnes Daily Capacity</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">32</div>
+                        <div class="stat-label">Village Panchayats Served</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Waste Categories Sorted</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">273K</div>
+                        <div class="stat-label">Tonnes Tourist Waste/Year</div>
+                    </div>
+                </div>
+
+                <div class="waste-row">
+                    <div class="waste-card featured">
+                        <h3>Project SAIM (2024)</h3>
+                        <p><strong>Sustainable Approach to Integrated Waste Management</strong> – A collaboration
+                            between WWF-India and Saahas Zero Waste. Features a state-of-the-art Material Recovery
+                            Facility in GIDC Nessai near Margao with trommels, conveyors, and balers processing up to
+                            10 tonnes of dry waste daily.</p>
+                        <ul class="feature-list">
+                            <li>Serves 32 village panchayats</li>
+                            <li>20+ waste categories for maximum resource recovery</li>
+                            <li>Community empowerment and worker training programs</li>
+                        </ul>
+                    </div>
+
+                    <div class="waste-card">
+                        <h3>Panjim Smart Waste Hub</h3>
+                        <p>Integrated doorstep collection system with advanced segregation at source. Features dry/wet
+                            waste separation, community awareness programs, and exceptional landfill diversion rates
+                            setting benchmarks across the state.</p>
+                    </div>
+
+                    <div class="waste-card">
+                        <h3>Margao Circular Community</h3>
+                        <p>Public-private partnership model establishing recycling centers connected to organic markets.
+                            School e-waste collection drives and community composting initiatives support circular
+                            economy principles.</p>
+                    </div>
+                    <div></div>
+                    <div class="waste-card">
+                        <h3>Lighthouse Project, Mapusa</h3>
+                        <p>Mondelez India's initiative addressing multi-layered plastic waste challenges. Focuses on
+                            scaling waste management through innovative plastic credit financing and circular economy
+                            approaches.</p>
+                    </div>
+                </div>
+
+                <div class="waste-challenge-box">
+                    <h3>Tourism & Waste Challenge</h3>
+                    <p>With tourist numbers increasing from 2.79 million (2012) to 7.79 million (2017), Goa faces
+                        unique waste challenges. Tourists generate 273,408 tonnes of waste annually compared to 250,645
+                        tonnes from local population. Goa is the highest generator of beach debris in India at 40.9 kg
+                        per head.</p>
+                </div>
+            </section>
+
+            <!-- Solar Energy Section -->
+            <section class="solar-energy-section">
+                <h2>Solar Energy Revolution</h2>
+                <div class="solar-highlight">
+                    <div class="solar-content">
+                        <h3>383 Government Buildings Go Solar</h3>
+                        <p>Under the PM Surya Ghar scheme, Goa has successfully installed 6 MW of rooftop solar
+                            capacity across 383 government buildings, generating 84 lakh units annually and saving ₹6
+                            crore in electricity costs.</p>
+                    </div>
+                    <div class="solar-stats">
+                        <div class="solar-stat">
+                            <strong>6 MW</strong>
+                            <span>Total Capacity</span>
+                        </div>
+                        <div class="solar-stat">
+                            <strong>₹6 Cr</strong>
+                            <span>Annual Savings</span>
+                        </div>
+                        <div class="solar-stat">
+                            <strong>84L</strong>
+                            <span>Units/Year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solar-initiatives">
+                    <div class="solar-card">
+                        <h3>30 MW Expansion Project</h3>
+                        <p>Approved installation across 300+ government buildings expected to generate 4.5 crore units
+                            of clean electricity, executed through MoU with MahaPreit.</p>
+                    </div>
+                    <div class="solar-card">
+                        <h3>Goa State Solar Policy 2017</h3>
+                        <p>Framework providing incentives for rooftop installations, amended in 2019 with additional
+                            benefits to accelerate private sector adoption.</p>
+                    </div>
+                    <div class="solar-card">
+                        <h3>Renewable Energy Policy 2025</h3>
+                        <p>New comprehensive policy to decarbonize energy sector, attract green investments, and achieve
+                            net-zero emissions by 2050.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Green Tourism & Hotels -->
+            <section class="eco-tourism">
+                <h2>Sustainable Tourism & Green Accommodations</h2>
+
+                <div class="eco-intro">
+                    <p>Goa's hospitality sector leads India in adopting green practices, from solar-powered retreats to
+                        rainwater harvesting systems. Hotels and resorts demonstrate how tourism can coexist with
+                        environmental stewardship.</p>
+                </div>
+
+                <div class="eco-cards-row">
+                    <div class="eco-card">
+                        <h3>Taj Exotica Resort & Spa</h3>
+                        <p>Internationally certified earth-friendly practices including solar water heating, biogas
+                            plants for waste-to-energy conversion, organic butterfly gardens, and comprehensive water
+                            conservation systems.</p>
+                        <div class="eco-features">
+                            <span class="eco-badge">Solar Powered</span>
+                            <span class="eco-badge">Biogas Plant</span>
+                            <span class="eco-badge">Biodiversity</span>
+                        </div>
+                    </div>
+
+                    <div class="eco-card">
+                        <h3>Goa Chitra Museum</h3>
+                        <p>Eco-heritage exhibition showcasing traditional Goan agrarian lifestyle with modern
+                            sustainability: rainwater harvesting, natural lighting systems, and traditional
+                            architecture preserving cultural heritage.</p>
+                        <div class="eco-features">
+                            <span class="eco-badge">Heritage</span>
+                            <span class="eco-badge">Water Harvesting</span>
+                        </div>
+                    </div>
+
+                    <div class="eco-card">
+                        <h3>Eco-Friendly Retreats</h3>
+                        <p>Network of small hotels and resorts adopting comprehensive green practices: energy-efficient
+                            infrastructure, waste segregation and composting, local sourcing, and guest education
+                            programs.</p>
+                        <div class="eco-features">
+                            <span class="eco-badge">Local Sourcing</span>
+                            <span class="eco-badge">Zero Waste</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Construction & C&D Waste -->
+            <section class="construction-section highlight-bg">
+                <h2>Sustainable Construction Practices</h2>
+                <div class="construction-content">
+                    <div class="construction-text">
+                        <p><strong>Construction & Demolition (C&D) waste</strong> is projected to increase from 25
+                            tonnes per day (TPD) to 35 TPD by 2040. The strategy emphasizes:</p>
+                        <ul>
+                            <li>Systematic estimation and collection of C&D waste</li>
+                            <li>Material recovery and recycling facilities</li>
+                            <li>Green construction guidelines and certifications</li>
+                            <li>Sustainable procurement policies for government projects</li>
+                            <li>Economic instruments to incentivize circular practices</li>
+                        </ul>
+                    </div>
+                    <div class="construction-impact">
+                        <h4>Environmental Benefits</h4>
+                        <p>Recycling C&D waste prevents land degradation, reduces illegal dumping pressure on landfills,
+                            and protects surface and groundwater from contamination.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Engagement -->
+            <section class="community-section">
+                <h2>Community-Driven Change</h2>
+                <div class="community-grid">
+                    <div class="community-card">
+                        <h3>🎓 Education & Awareness</h3>
+                        <p>School programs, waste collection drives, beach cleaning campaigns, and public awareness
+                            initiatives engaging thousands of residents and tourists in environmental action.</p>
+                    </div>
+                    <div class="community-card">
+                        <h3>👥 Worker Empowerment</h3>
+                        <p>Formal training for waste collectors, provision of protective gear, skill development
+                            programs,
+                            and social security ensuring dignified work conditions.</p>
+                    </div>
+                    <div class="community-card">
+                        <h3>🤝 Public-Private Partnership</h3>
+                        <p>Collaboration between government, NGOs, corporations, and local communities creating
+                            sustainable models scalable across India.</p>
+                    </div>
+                    <div class="community-card">
+                        <h3>🏆 Financial Incentives</h3>
+                        <p>Awards for coastal villages with integrated waste systems, rewards for fishermen removing
+                            marine debris, tourist taxes supporting beach cleaning infrastructure.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section class="map-section">
+                <h2>Map: Goa's Green Projects</h2>
+                <div id="goa-map"></div>
+                <div class="map-legend">
+                    <span class="legend-marker" style="background:#81c784"></span> Waste Management
+                    <span class="legend-marker museum"></span> Museum
+                    <span class="legend-marker hotel"></span> Green Hotel
+                </div>
+            </section>
+
+            <!-- Impact & Statistics -->
+            <section class="impact-section">
+                <h2>Measurable Impact</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">⚡</div>
+                        <h3>Energy Transition</h3>
+                        <p>Over 6 MW solar capacity installed with plans for 30 MW expansion, positioning Goa as a
+                            renewable energy leader in coastal states.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">♻️</div>
+                        <h3>Waste Diversion</h3>
+                        <p>10+ tonnes daily dry waste processing through MRF facilities with 20+ category sorting for
+                            maximum resource recovery and circular economy integration.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🌊</div>
+                        <h3>Marine Conservation</h3>
+                        <p>Targeted programs addressing Goa's status as highest beach debris generator, with community
+                            involvement and financial incentives for cleanup.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🏗️</div>
+                        <h3>Circular Construction</h3>
+                        <p>Framework established for C&D waste management preventing environmental degradation and
+                            promoting material reuse in growing construction sector.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Future Roadmap -->
+            <section class="roadmap-section highlight-bg">
+                <h2>Looking Ahead: 2025-2040 Roadmap</h2>
+                <div class="roadmap-content">
+                    <div class="roadmap-item">
+                        <h3>Short Term (2025-2027)</h3>
+                        <ul>
+                            <li>Scale MRF facilities to cover all urban centers</li>
+                            <li>Complete 30 MW solar installation on government buildings</li>
+                            <li>Implement green construction guidelines statewide</li>
+                            <li>Launch tourist eco-tax and incentive programs</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3>Medium Term (2028-2035)</h3>
+                        <ul>
+                            <li>Achieve 50% reduction in landfill waste</li>
+                            <li>Expand renewable energy to 100 MW capacity</li>
+                            <li>Establish collection centers in all villages</li>
+                            <li>Zero single-use plastic across tourism sector</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3>Long Term (2036-2050)</h3>
+                        <ul>
+                            <li>Net-zero emissions achievement</li>
+                            <li>100% circular economy in priority sectors</li>
+                            <li>Regional model for sustainable coastal tourism</li>
+                            <li>Complete marine litter elimination</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explore Related Topics Section -->
+            <section class="related-topics-section">
+                <h2>Explore Related Topics</h2>
+                <p class="related-intro">Discover how Goa's green practices connect with broader sustainability
+                    movements, entrepreneurship, and circular economy principles</p>
+
+                <div class="related-grid">
+                    <a href="circular_economy.html" class="related-card">
+                        <div class="related-icon">♻️</div>
+                        <div class="related-content">
+                            <h3>Circular Economy Fundamentals</h3>
+                            <p>Understand the economic model underlying Goa's resource efficiency, waste reduction, and
+                                regenerative sustainability strategies.</p>
+                            <span class="read-more">Learn More →</span>
+                        </div>
+                    </a>
+
+                    <a href="sustainable_design_production.html" class="related-card">
+                        <div class="related-icon">🎨</div>
+                        <div class="related-content">
+                            <h3>Sustainable Design & Production</h3>
+                            <p>Explore how sustainable design principles support Goa's eco-friendly manufacturing and
+                                production initiatives.</p>
+                            <span class="read-more">Learn More →</span>
+                        </div>
+                    </a>
+
+                    <a href="green_entrepreneurship.html" class="related-card">
+                        <div class="related-icon">🌱</div>
+                        <div class="related-content">
+                            <h3>Green Entrepreneurship Nationwide</h3>
+                            <p>Learn how sustainable businesses across India are driving eco-friendly innovation and
+                                inspiring Goa's green movement.</p>
+                            <span class="read-more">Learn More →</span>
+                        </div>
+                    </a>
+
+                    <a href="goa_green_entrepreneurship.html" class="related-card">
+                        <div class="related-icon">💼</div>
+                        <div class="related-content">
+                            <h3>Goa's Green Entrepreneurs</h3>
+                            <p>Meet the innovative businesses and startups implementing Goa's green practices and
+                                leading sustainability transformation.</p>
+                            <span class="read-more">Learn More →</span>
+                        </div>
+                    </a>
+
+                    <a href="relation_circular_green.html" class="related-card">
+                        <div class="related-icon">🔗</div>
+                        <div class="related-content">
+                            <h3>Circular Economy & Green Business</h3>
+                            <p>See how circular economy principles enable green entrepreneurship and power Goa's
+                                sustainable development.</p>
+                            <span class="read-more">Learn More →</span>
+                        </div>
+                    </a>
+
+                    <a href="government_policies.html" class="related-card">
+                        <div class="related-icon">🏛️</div>
+                        <div class="related-content">
+                            <h3>Government Policies & Support</h3>
+                            <p>Understand the policies, programs, and regulatory frameworks supporting Goa's green
+                                initiatives and sustainable practices.</p>
+                            <span class="read-more">Learn More →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-decoration-left">
+            <img src="../assets/svg/left_plant.svg" alt="Plant decoration">
+        </div>
+
+        <div class="footer-decoration-right">
+            <img src="../assets/svg/left_plant.svg" alt="Plant decoration" style="transform: rotateY(180deg);">
+        </div>
+
+        <div class="footer-content">
+            <p>&copy; 2025 GoaGreen | Created by Pushkar Phadte & Mayuresh Jalmi.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../js/goa_map.js"></script>
+    <script type="module" src="../js/goa_green_practices_animations.js"></script>
+</body>
+
+</html>

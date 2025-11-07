@@ -112,6 +112,281 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Entrepreneur Slider
+  const entrepreneurShowcase = document.querySelector('.entrepreneurs-showcase');
+  if (entrepreneurShowcase instanceof HTMLElement) {
+    const track = entrepreneurShowcase.querySelector('.entrepreneur-track');
+    const slides = Array.from(entrepreneurShowcase.querySelectorAll('.entrepreneur-slide'))
+      .filter(el => el instanceof HTMLElement);
+    const prevBtn = entrepreneurShowcase.querySelector('.slider-nav.prev');
+    const nextBtn = entrepreneurShowcase.querySelector('.slider-nav.next');
+    const indicators = Array.from(entrepreneurShowcase.querySelectorAll('.indicator'));
+    const currentSlideEl = entrepreneurShowcase.querySelector('.current-slide');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    /** @type {number | undefined} */
+    let autoPlayInterval;
+    let isAnimating = false;
+
+    /**
+     * @param {number} direction - 1 for next, -1 for previous
+     */
+    function updateSlider(direction = 1) {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const outgoingSlide = slides[currentSlide];
+      const targetSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      const incomingSlide = slides[targetSlide];
+
+      // Animate outgoing slide
+      if (outgoingSlide instanceof HTMLElement) {
+        animate(outgoingSlide, {
+          opacity: [1, 0],
+          translateX: [0, direction * -100],
+          easing: 'easeInCubic',
+          duration: 400,
+          complete: () => {
+            outgoingSlide.classList.remove('active');
+            outgoingSlide.style.opacity = '0';
+            outgoingSlide.style.transform = '';
+          }
+        });
+      }
+
+      // Update current slide index
+      currentSlide = targetSlide;
+
+      // Animate incoming slide
+      if (incomingSlide instanceof HTMLElement) {
+        incomingSlide.classList.add('active');
+        incomingSlide.style.opacity = '0';
+
+        animate(incomingSlide, {
+          opacity: [0, 1],
+          translateX: [direction * 100, 0],
+          easing: 'easeOutCubic',
+          duration: 500,
+          delay: 200,
+          complete: () => {
+            isAnimating = false;
+          }
+        });
+
+        // Animate inner elements
+        const badge = incomingSlide.querySelector('.entrepreneur-badge');
+        const logo = incomingSlide.querySelector('.company-logo');
+        const metrics = incomingSlide.querySelectorAll('.metric');
+        const pills = incomingSlide.querySelectorAll('.pill');
+
+        if (badge instanceof HTMLElement) {
+          animate(badge, {
+            scale: [0, 1],
+            rotate: [180, 0],
+            easing: 'easeOutElastic(1, .6)',
+            duration: 800,
+            delay: 400,
+          });
+        }
+
+        if (logo instanceof HTMLElement) {
+          animate(logo, {
+            scale: [0, 1],
+            rotate: [-20, 0],
+            easing: 'spring(1, 80, 10, 0)',
+            duration: 800,
+            delay: 500,
+          });
+        }
+
+        if (metrics.length > 0) {
+          const metricsArray = Array.from(metrics).filter(el => el instanceof HTMLElement);
+          animate(metricsArray, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutCubic',
+            duration: 500,
+            delay: stagger(80, { start: 600 }),
+          });
+        }
+
+        if (pills.length > 0) {
+          const pillsArray = Array.from(pills).filter(el => el instanceof HTMLElement);
+          animate(pillsArray, {
+            opacity: [0, 1],
+            scale: [0.8, 1],
+            easing: 'easeOutBack',
+            duration: 400,
+            delay: stagger(60, { start: 800 }),
+          });
+        }
+      }
+
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        if (indicator instanceof HTMLElement) {
+          indicator.classList.toggle('active', index === currentSlide);
+        }
+      });
+
+      // Update counter with animation
+      if (currentSlideEl instanceof HTMLElement) {
+        animate(currentSlideEl, {
+          scale: [1, 1.3, 1],
+          easing: 'easeOutElastic(1, .6)',
+          duration: 500,
+          complete: () => {
+            currentSlideEl.textContent = String(currentSlide + 1);
+          }
+        });
+      }
+    }
+
+    function nextSlide() {
+      updateSlider(1);
+    }
+
+    function prevSlide() {
+      updateSlider(-1);
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    // Event listeners
+    if (nextBtn instanceof HTMLElement) {
+      nextBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+      });
+    }
+
+    if (prevBtn instanceof HTMLElement) {
+      prevBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
+      });
+    }
+
+    indicators.forEach((indicator, index) => {
+      if (indicator instanceof HTMLElement) {
+        indicator.addEventListener('click', () => {
+          stopAutoPlay();
+          const direction = index > currentSlide ? 1 : -1;
+          currentSlide = index - direction;
+          updateSlider(direction);
+          startAutoPlay();
+        });
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
+      }
+      if (e.key === 'ArrowRight') {
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+      }
+    });
+
+    // Pause auto-play on hover
+    if (track instanceof HTMLElement) {
+      track.addEventListener('mouseenter', stopAutoPlay);
+      track.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Initial animation for showcase section
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate('.showcase-header', {
+            opacity: [0, 1],
+            translateY: [-30, 0],
+            easing: 'easeOutCubic',
+            duration: 600,
+          });
+
+          // Animate first slide
+          const firstSlide = slides[0];
+          if (firstSlide instanceof HTMLElement) {
+            animate(firstSlide, {
+              opacity: [0, 1],
+              scale: [0.9, 1],
+              easing: 'easeOutCubic',
+              duration: 800,
+              delay: 300,
+            });
+          }
+
+          animate('.slider-nav', {
+            opacity: [0, 1],
+            scale: [0, 1],
+            easing: 'spring(1, 80, 10, 0)',
+            duration: 600,
+            delay: stagger(100, { start: 500 }),
+          });
+
+          startAutoPlay();
+          obs.unobserve(entrepreneurShowcase);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(entrepreneurShowcase);
+  }
+
+  // Accordion functionality
+  const accordions = document.querySelectorAll('.scheme-accordion');
+  accordions.forEach(accordion => {
+    const trigger = accordion.querySelector('.accordion-trigger');
+    if (trigger instanceof HTMLElement) {
+      trigger.addEventListener('click', () => {
+        const isExpanded = accordion.classList.contains('expanded');
+
+        // Close all other accordions
+        accordions.forEach(other => {
+          if (other !== accordion) {
+            other.classList.remove('expanded');
+          }
+        });
+
+        // Toggle current accordion
+        accordion.classList.toggle('expanded');
+
+        if (!isExpanded) {
+          const content = accordion.querySelector('.accordion-content');
+          const pills = accordion.querySelectorAll('.feature-pill');
+
+          if (pills.length > 0) {
+            const pillsArray = Array.from(pills).filter(el => el instanceof HTMLElement);
+            animate(pillsArray, {
+              opacity: [0, 1],
+              translateY: [10, 0],
+              easing: 'easeOutCubic',
+              duration: 400,
+              delay: stagger(60, { start: 200 }),
+            });
+          }
+        }
+      });
+    }
+  });
+
   // Info sections animation
   const infoSections = document.querySelectorAll('.entrepreneur-info, .entrepreneur-history, .entrepreneur-examples');
   infoSections.forEach(section => {
